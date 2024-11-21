@@ -3,43 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bean Quest - The Assessment Platform</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to an external CSS file (optional) -->
-</head>
-<body>
-    <header>
-        <h1>Welcome to BeanQuest</h1>
-        <p>The Assessment Platform</p>
-    </header>
-    
-    <main>
-        <!-- Overview Section -->
-        <section id="overview">
-            <h2>About BeanQuest</h2>
-            <p>BeanQuest is an assessment platform designed to help users take and manage assessments in various fields.</p>
-        </section>
+    <title>BeanQuest: The Assessment Platform</title>
+https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Handling form submission and calculating results
+        document.getElementById("assessmentForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            
+            let score = 0;
+            let totalQuestions = 3;
  
-        <!-- Feature Section -->
-        <section id="features">
-            <h2>Features</h2>
-            <ul>
-                <li>Easy-to-use interface</li>
-                <li>Real-time progress tracking</li>
-                <li>Variety of assessments</li>
-            </ul>
-        </section>
+            // Question 1: Correct answer is 4
+            if (document.querySelector('input[name="q1"]:checked')?.value === "4") {
+                score++;
+            }
+            
+            // Question 2: Correct answer is Paris
+            if (document.querySelector('input[name="q2"]:checked')?.value === "Paris") {
+                score++;
+            }
  
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>For inquiries, reach out to us at <a href="mailto:info@beanquest.com">info@beanquest.com</a></p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2024 BeanQuest. All Rights Reserved.</p>
-    </footer>
+            // Question 3: Correct answer is Jupiter
+            if (document.querySelector('input[name="q3"]:checked')?.value === "Jupiter") {
+                score++;
+            }
  
-    <script src="script.js"></script> <!-- Link to an external JS file (optional) -->
+            // Displaying results
+            const resultText = `You scored ${score} out of ${totalQuestions}.`;
+            document.getElementById("resultText").textContent = resultText;
+            
+            // Show results section
+            document.getElementById("resultsSection").classList.remove("d-none");
+            // Hide the assessment form
+            document.getElementById("assessmentForm").classList.add("d-none");
+        });
+    </script>
 </body>
 </html>
