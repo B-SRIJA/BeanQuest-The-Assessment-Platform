@@ -14,3 +14,31 @@ document.getElementById('adminLoginForm').onsubmit = function(event) {
     alert('Invalid admin credentials');
   }
 };
+document.getElementById('createAssessment').onsubmit = function(event) {
+  event.preventDefault();
+
+  const assessmentName = document.getElementById('assessmentName').value;
+  const question = document.getElementById('question').value;
+  const options = document.getElementById('options').value.split(',');
+  const correctAnswer = document.getElementById('correctAnswer').value;
+
+  const newAssessment = {
+    name: assessmentName,
+    questions: [
+      {
+        question: question,
+        options: options,
+        correctAnswer: correctAnswer
+      }
+    ]
+  };
+
+  const assessmentList = document.getElementById('adminAssessmentList');
+  const li = document.createElement('li');
+  li.innerHTML = `${assessmentName} - <button onclick="viewAssessment('${assessmentName}')">View</button>`;
+  assessmentList.appendChild(li);
+};
+
+function viewAssessment(name) {
+  alert("Viewing assessment: " + name);
+}
