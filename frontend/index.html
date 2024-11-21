@@ -359,10 +359,10 @@
         <p>&copy; 2024 BeanQuest. All rights reserved.</p>
     </footer>
 <script>
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent default form submission
-
-    // Get form data
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission to avoid page reload
+    // Handle form data here
+// Get form data
     const formData = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
@@ -390,7 +390,11 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
             alert('There was an error submitting the form!');
             console.error('Error:', error); // Log error to the console
         });
+
 });
+
+
+    });
 </script>
 </body>
 </html>
