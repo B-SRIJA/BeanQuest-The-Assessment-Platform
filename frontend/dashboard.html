@@ -1,10 +1,176 @@
-<!-- User Dashboard -->
-<div id="userDashboard">
-  <h2>Available Assessments</h2>
-  <ul id="assessmentList">
-    <li>
-      <span>Math Test 1</span>
-      <button class="startTest" onclick="startTest('Math Test 1')">Start Test</button>
-    </li>
-  </ul>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Julius Sans One', sans-serif;
+            background-color: #f5efeb;
+            color: #2f4156;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2f4156;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .welcome-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+
+        .dashboard-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .assessment-card {
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .assessment-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .assessment-card button {
+            background-color: #567c8d;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .admin-section {
+            background-color: #c8d9e6;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .admin-section form input,
+        .admin-section form textarea {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #567c8d;
+            border-radius: 5px;
+        }
+
+        .admin-section form button {
+            padding: 10px 20px;
+            background-color: #2f4156;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+    <div class="welcome-message">
+        Welcome back, <span id="user-name"></span>!
+    </div>
+    <div class="dashboard-container" id="assessments-container">
+        <!-- Assessment categories will load here dynamically -->
+    </div>
+    <div class="admin-section" id="admin-section" style="display: none;">
+        <h2>Create a New Assessment</h2>
+        <form id="create-assessment-form">
+            <input type="text" id="assessment-title" placeholder="Assessment Title" required>
+            <textarea id="assessment-description" placeholder="Assessment Description" rows="4" required></textarea>
+            <button type="submit">Create Assessment</button>
+        </form>
+    </div>
+    <script>
+        // Sample user data for demonstration
+        const user = {
+            name: "Radhika", // Replace with data from backend/session
+            isAdmin: true // Set to false for normal users
+        };
+
+        // Sample assessment data for demonstration
+        const assessments = [
+            { title: "Types of Testing", description: "Learn the basics of various testing types." },
+            { title: "Performance Assessment", description: "Evaluate system performance effectively." },
+            { title: "Technical Assessment", description: "Test your technical expertise." },
+            { title: "Analytics Capability", description: "Boost your analytics skills." },
+            { title: "Risk Assessment", description: "Learn to identify and assess risks." }
+        ];
+
+        // Display user name
+        document.getElementById("user-name").textContent = user.name;
+
+        // Load assessments dynamically
+        const container = document.getElementById("assessments-container");
+        assessments.forEach(assessment => {
+            const card = document.createElement("div");
+            card.classList.add("assessment-card");
+            card.innerHTML = `
+                <h3>${assessment.title}</h3>
+                <p>${assessment.description}</p>
+                <button>Take Assessment</button>
+            `;
+            container.appendChild(card);
+        });
+
+        // Show admin section if the user is an admin
+        if (user.isAdmin) {
+            document.getElementById("admin-section").style.display = "block";
+
+            // Handle form submission
+            document.getElementById("create-assessment-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const title = document.getElementById("assessment-title").value;
+                const description = document.getElementById("assessment-description").value;
+
+                // Add new assessment to the list
+                assessments.push({ title, description });
+
+                // Re-render assessments
+                container.innerHTML = "";
+                assessments.forEach(assessment => {
+                    const card = document.createElement("div");
+                    card.classList.add("assessment-card");
+                    card.innerHTML = `
+                        <h3>${assessment.title}</h3>
+                        <p>${assessment.description}</p>
+                        <button>Take Assessment</button>
+                    `;
+                    container.appendChild(card);
+                });
+
+                alert("New assessment created!");
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
+
