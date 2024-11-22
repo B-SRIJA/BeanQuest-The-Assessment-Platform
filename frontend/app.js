@@ -38,4 +38,3 @@ function countdown() {
 }
 
 const timerInterval = setInterval(countdown, 1000);
-
