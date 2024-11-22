@@ -1,29 +1,92 @@
-<!-- frontend/login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - BeanQuest</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Inline specific styling for Login page */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: linear-gradient(to bottom, #4a90e2, #f4f4f9); /* Smooth gradient background */
+      color: #333;
+    }
+
+    .login-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+
+    .login-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .login-box input {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .login-box button {
+      background-color: #4a90e2;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #357abd;
+    }
+
+    .login-box p {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .login-box p a {
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-box p a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <div id="loginPage">
-    <h2>Login to the Assessment Platform</h2>
-    
-    <!-- User Login Form -->
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Username" required><br><br>
-      <input type="password" id="password" placeholder="Password" required><br><br>
-      <button type="submit">Login</button>
-    </form>
-
-    <!-- Admin Login Link -->
-    <div>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Login to BeanQuest</h2>
+      <form action="#" method="POST">
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <button type="submit">Login</button>
+      </form>
       <p>Are you an Admin? <a href="admin-login.html">Login here</a></p>
     </div>
   </div>
-
-  <script src="app.js"></script> <!-- Link to your JavaScript -->
 </body>
 </html>
