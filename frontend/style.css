@@ -1,0 +1,220 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9; /* Light gray background */
+  color: #333; /* Dark text for readability */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #4a90e2; /* Primary blue */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  color: #4a90e2; /* Primary blue for headings */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #fff; /* White background for list items */
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+ul li:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+ul li:active {
+  background-color: #e6f4ff; /* Light blue when clicked */
+}
+
+/* Form Styles */
+form {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form input, form textarea, form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+form button {
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #357abd; /* Darker blue on hover */
+}
+
+form input[type="text"], form input[type="password"] {
+  width: calc(100% - 20px);
+}
+
+form input[type="submit"], form button {
+  width: auto;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+/* Login Page Styles */
+#login-form {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#login-form input {
+  margin-bottom: 20px;
+}
+
+#login-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+}
+
+#login-form button:hover {
+  background-color: #357abd;
+}
+
+/* Admin Dashboard Styles */
+#admin-dashboard {
+  padding: 20px;
+  background-color: #fff;
+}
+
+#admin-dashboard h2 {
+  color: #4a90e2;
+  margin-bottom: 15px;
+}
+
+#admin-dashboard ul {
+  margin: 0;
+  padding: 0;
+}
+
+#admin-dashboard ul li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+#admin-dashboard ul li:hover {
+  background-color: #e6f4ff;
+}
+
+/* Create Assessment Styles */
+#create-assessment-form {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#create-assessment-form input,
+#create-assessment-form select,
+#create-assessment-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+#create-assessment-form button {
+  padding: 12px;
+  background-color: #4a90e2;
+  border: none;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+}
+
+#create-assessment-form button:hover {
+  background-color: #357abd;
+}
+
+/* Footer Section */
+footer {
+  background-color: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  section h2 {
+    font-size: 1.2rem;
+  }
+
+  #login-form, #create-assessment-form, #admin-dashboard {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  #login-form button,
+  #create-assessment-form button {
+    width: 100%;
+  }
+
+  ul li {
+    padding: 10px;
+  }
+}
